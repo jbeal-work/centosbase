@@ -10,3 +10,4 @@ yum -q -y check-update
 yum -q -y update
 curl https://releases.hashicorp.com/packer/0.10.1/packer_0.10.1_linux_amd64.zip -o /tmp/packer_0.10.1_linux_amd64.zip 
 cd /usr/local/bin
+unzip /tmp/packer_0.10.1_linux_amd64.zip
