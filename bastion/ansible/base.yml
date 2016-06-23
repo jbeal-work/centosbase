@@ -1,0 +1,36 @@
+- name: install packages
+  sudo: True
+  hosts: all
+  tasks:
+    - name: install packages
+      yum: name={{ item }} state=latest
+      with_items:
+        - ipa-client
+        - ipa-admintools
+        - python-barbicanclient.noarch 
+        - python-barbicanclient-doc.noarch 
+        - python-ceilometerclient.noarch 
+        - python-ceilometerclient-doc.noarch 
+        - python-cinderclient.noarch 
+        - python-cinderclient-doc.noarch 
+        - python-designateclient.noarch 
+        - python-docker-py.noarch 
+        - python-glanceclient.noarch 
+        - python-glanceclient-doc.noarch 
+        - python-heatclient.noarch 
+        - python-heatclient-doc.noarch 
+        - python-ironicclient.noarch 
+        - python-keystoneclient.noarch 
+        - python-keystoneclient-doc.noarch 
+        - python-keystoneclient-kerberos.noarch 
+        - python-manilaclient.noarch 
+        - python-manilaclient-doc.noarch 
+        - python-neutronclient.noarch 
+        - python-novaclient.noarch 
+        - python-novaclient-doc.noarch 
+        - python-openstackclient.noarch 
+        - python-openstackclient-doc.noarch 
+        - python-saharaclient.noarch 
+        - python-swiftclient.noarch 
+        - python-swiftclient-doc.noarch 
+        - python-troveclient.noarch 

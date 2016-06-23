@@ -1,0 +1,35 @@
+{
+    "builders": [
+        {
+            "flavor": "m1.small",
+            "image_name": "centos72",
+            "source_image": "bced0891-a971-499e-a0d6-d44323312a03",
+            "ssh_username": "centos",
+            "use_floating_ip" : "true",
+            "floating_ip_pool" : "nova",
+            "type": "openstack",
+            "security_groups" : "ssh" ,
+            "ssh_pty" : "true"
+        }
+    ],
+    "provisioners": [
+        {
+            "scripts": [
+                "scripts/update.sh",
+                "scripts/compiler_tools.sh"
+            ],
+            "type": "shell",
+            "execute_command": "sudo bash '{{.Path}}'"
+        },
+        {
+            "destination": "/stash",
+            "source": "./data/",
+            "type": "file"
+        },
+        {
+            "playbook_file": "ansible/base.yml",
+            "playbook_dir": "ansible",
+            "type": "ansible-local"
+        }
+    ]
+}
